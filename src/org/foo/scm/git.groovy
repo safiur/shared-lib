@@ -1,0 +1,14 @@
+#!/usr/bin/groovy
+pacakage org.foo.scm
+def getSCMInformation() {
+        def gitRemoteUrl = steps.sh(returnStdout: true, script: 'git config --get remote.origin.url').trim()
+        def gitCommitSha = steps.sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+        def gitBranchName = steps.sh(returnStdout: true, script: 'git name-rev --always --name-only HEAD').trim().replace('remotes/origin/', '')
+
+        return [
+                url: gitRemoteUrl,
+                branch: gitBranchName,
+                commit: gitCommitSha
+        ]
+    }
+
