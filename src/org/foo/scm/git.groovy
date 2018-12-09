@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-pacakage org.foo.scm
+package org.foo.scm
 def getSCMInformation() {
         def gitRemoteUrl = steps.sh(returnStdout: true, script: 'git config --get remote.origin.url').trim()
         def gitCommitSha = steps.sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
