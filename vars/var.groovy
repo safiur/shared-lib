@@ -10,6 +10,8 @@ def call(body)
    timestamps {
            def git = new git()
            git.Checkout("${config.GIT_URL}","${config.BRANCH}","${config.GIT_CREDENTIALS}")
+  println(env.GIT_BRANCH)
+
     }
 }
 
