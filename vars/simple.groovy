@@ -14,4 +14,6 @@ def call(Map pipelineParams) {
                     sh 'mvn clean package -DskipTests=true'
                 }
             }
-
+}
+}
+}
