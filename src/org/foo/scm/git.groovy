@@ -23,13 +23,7 @@ def Checkout(String GIT_URL, String BRANCH, String GIT_CREDENTIALS)
           env.GIT_URL = "$GIT_URL"
           env.GIT_COMMIT = getGitCommitHash()
           env.GIT_AUTHOR_EMAIL = getCommitAuthorEmail()
-        }
    }
-   catch (Exception caughtError) {
-          print "\u001B[41m[ERROR]: clone for repository ${env.GIT_URL} failed, please check the logs..."
-          currentBuild.result = "FAILURE"
-          throw caughtError
-       }
    }
 }
-
+ 
