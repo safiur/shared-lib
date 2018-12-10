@@ -7,10 +7,10 @@ def call(body)
    body.resolveStrategy = Closure.DELEGATE_FIRST
    body.delegate = config
    body()
-   timestamps {
+   stage ('\u2776 Code Checkout') {
            def git = new git()
            git.Checkout("${config.GIT_URL}","${config.BRANCH}","${config.GIT_CREDENTIALS}")
-  println(env.GIT_BRANCH)
+  println(env.GIT_URL)
 
     }
 }
