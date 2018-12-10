@@ -11,7 +11,6 @@ package org.foo.scm
 ******************************************************/
 def Checkout(String GIT_URL, String BRANCH, String GIT_CREDENTIALS)
 {
-   try {
           def BRANCH_NAME = "${env.BRANCH_NAME}"
           if ( BRANCH_NAME != "null" && !BRANCH_NAME.isEmpty() && !BRANCH_NAME.trim().isEmpty())
 	      { 
@@ -24,5 +23,4 @@ def Checkout(String GIT_URL, String BRANCH, String GIT_CREDENTIALS)
           env.GIT_COMMIT = getGitCommitHash()
           env.GIT_AUTHOR_EMAIL = getCommitAuthorEmail()
    }
-}
  
