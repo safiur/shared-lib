@@ -12,7 +12,6 @@ package org.foo.scm
 def Checkout(String GIT_URL, String BRANCH, String GIT_CREDENTIALS)
 {
    try {
-        wrap([$class: 'AnsiColorBuildWrapper']) {
           def BRANCH_NAME = "${env.BRANCH_NAME}"
           if ( BRANCH_NAME != "null" && !BRANCH_NAME.isEmpty() && !BRANCH_NAME.trim().isEmpty())
 	      { 
@@ -27,7 +26,6 @@ def Checkout(String GIT_URL, String BRANCH, String GIT_CREDENTIALS)
         }
    }
    catch (Exception caughtError) {
-       wrap([$class: 'AnsiColorBuildWrapper']) {
           print "\u001B[41m[ERROR]: clone for repository ${env.GIT_URL} failed, please check the logs..."
           currentBuild.result = "FAILURE"
           throw caughtError
