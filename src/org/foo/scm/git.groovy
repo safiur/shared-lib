@@ -24,6 +24,5 @@ def Checkout(String GIT_URL, String BRANCH, String GIT_CREDENTIALS)
           env.GIT_COMMIT = getGitCommitHash()
           env.GIT_AUTHOR_EMAIL = getCommitAuthorEmail()
    }
-   }
 }
  
