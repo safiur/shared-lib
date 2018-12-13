@@ -11,7 +11,7 @@ def call(body) {
         stages {
             stage('checkout git') {
                 steps {
-                    git branch: pipelineParams.branch, credentialsId: 'github_credentials', url: pipelineParams.scmUrl
+                    git branch: pipelineParams.branch, credentialsId: 'credentials', url: pipelineParams.scmUrl
                 }
             }
 
