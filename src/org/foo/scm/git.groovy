@@ -9,6 +9,7 @@ package org.foo.scm
 /*****************************************************
 ***** function to checkout code from Git repository
 ******************************************************/
+class Check {
 def Checkout(String GIT_URL, String BRANCH)
 {
           def BRANCH_NAME = "${env.BRANCH_NAME}"
@@ -21,4 +22,4 @@ def Checkout(String GIT_URL, String BRANCH)
           env.GIT_BRANCH = "${BRANCH}"
           env.GIT_URL = "${GIT_URL}"
    }
- 
+ }

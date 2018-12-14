@@ -11,7 +11,7 @@ def call(body)
      agent any
      stages {
        stage ('\u2776 Code Checkout') {
-           def git = new git()
+           def git = new Check()
            git.Checkout("${config.GIT_URL}","${config.BRANCH}")
 
     }
