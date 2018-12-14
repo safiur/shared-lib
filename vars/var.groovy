@@ -12,7 +12,7 @@ def call(body)
      stages {
        stage ('\u2776 Code Checkout') {
            def git = new Check()
-           git.Checkout("${config.GIT_URL}","${config.BRANCH}")
+           git.Checkout("${config.GIT_URL}","${config.BRANCH_NAME}")
 
     }
 }
