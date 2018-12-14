@@ -9,7 +9,7 @@ package org.foo.scm
 /*****************************************************
 ***** function to checkout code from Git repository
 ******************************************************/
-def Checkout(String GIT_URL, String BRANCH_NAME)
+def Checkout(String GIT_URL, String BRANCH)
 {
           def BRANCH_NAME = "${env.BRANCH_NAME}"
           if ( BRANCH_NAME != "null" && !BRANCH_NAME.isEmpty() && !BRANCH_NAME.trim().isEmpty())
