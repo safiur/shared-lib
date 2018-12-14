@@ -20,4 +20,13 @@ def Checkout(String GIT_URL, String BRANCH)
           checkout([$class: 'GitSCM', branches: [[name: "${BRANCH}"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true, timeout: 30]], submoduleCfg: [], userRemoteConfigs: [[url: "${GIT_URL}"]]])
           env.GIT_BRANCH = "${BRANCH}"
           env.GIT_URL = "${GIT_URL}"
-   }
+   
+}
+
+/*****************************************************
+***** function to get commit author
+******************************************************/
+def getCommitAuthorComplete()
+{
+      sh returnStdout: true, script: "git --no-pager show -s --format='%an <%ae>' HEAD"
+}

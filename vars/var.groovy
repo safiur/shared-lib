@@ -8,7 +8,7 @@ def call(body)
    body.delegate = config
    body()
        stage ('\u2776 Code Checkout') {
-           def git = new git2()
+           def git = new git()
            git.Checkout("${config.GIT_URL}","${config.BRANCH_NAME}")
 
     }
