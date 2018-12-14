@@ -28,5 +28,6 @@ def Checkout(String GIT_URL, String BRANCH)
 ******************************************************/
 def getCommitAuthorComplete()
 {
-      sh returnStdout: true, script: "git --no-pager show -s --format='%an <%ae>' HEAD"
+      author = sh(returnStdout: true, script: "git --no-pager show -s --format='%an <%ae>' HEAD").trim()
+      return author
 }
