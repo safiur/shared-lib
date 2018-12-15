@@ -10,7 +10,8 @@ def call(body)
        stage ('\u2776 Code Checkout') {
            def git = new git()
            git.Checkout("${config.GIT_URL}","${config.BRANCH_NAME}")
-           git.getCommitAuthorComplete()
+           author_name = git.getCommitAuthorComplete()
+           println('author_name')
 
     }
 }
