@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 package org.foo.scm
-class Git implements Serializable {
+class git2 implements Serializable {
     def script
     Sh sh
     def credentials = null
