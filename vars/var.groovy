@@ -1,6 +1,6 @@
 #!/bin/usr/groovy
 import org.foo.scm.*
-import org.foo.build.*
+import org.foo.build.maven.*
 
 def call(body)
 {
@@ -15,7 +15,7 @@ def call(body)
 
     }
     stage ( 'building code') {
-      def mvn_exe = new build()
+      def mvn_exe = new Sample()
           mvn_exe.CleanPackage()
 
 }
