@@ -5,12 +5,12 @@ class git2 implements Serializable {
     Sh sh
     def credentials = null
 
-    Git(script, credentials) {
+    git2(script, credentials) {
         this(script)
         this.credentials = credentials
     }
 
-    Git(script) {
+    git2(script) {
         this.script = script
         this.sh = new Sh(script)
     }
@@ -60,7 +60,7 @@ class git2 implements Serializable {
         script.env.BRANCH_NAME
     }
 /**
-     * @return the Git Author of HEAD, in the following form <code>User Name &lt;user.name@doma.in&gt;</code>
+     * @return the git2 Author of HEAD, in the following form <code>User Name &lt;user.name@doma.in&gt;</code>
      */
     String getCommitAuthorComplete() {
         sh.returnStdOut "git --no-pager show -s --format='%an <%ae>' HEAD"
@@ -88,17 +88,17 @@ class git2 implements Serializable {
     }
 
     /**
-     * @return the URL of the Git repository, e.g. {@code https://github.com/orga/repo.git}
+     * @return the URL of the git2 repository, e.g. {@code https://github.com/orga/repo.git}
      */
     String getRepositoryUrl() {
         sh.returnStdOut "git config --get remote.origin.url"
     }
 
     /**
-     * @return the name of the GitHub Repository e.g. {@code repository/url} or empty String, if no GitHub repo.
+     * @return the name of the git2Hub Repository e.g. {@code repository/url} or empty String, if no git2Hub repo.
      */
     @Deprecated
-    String getGitHubRepositoryName() {
+    String getgit2HubRepositoryName() {
         if (!repositoryUrl.contains('github.com')) {
             return ''
         }
@@ -158,7 +158,7 @@ class git2 implements Serializable {
      * @param refSpec branch or tag name
      */
     void push(String refSpec) {
-        executeInShellWithGitCredentialsForWriting "git push origin ${refSpec}"
+        executeInShellWithgit2CredentialsForWriting "git push origin ${refSpec}"
     }
 
     /**
@@ -172,7 +172,7 @@ class git2 implements Serializable {
      * @param workspaceFolder
      * @param commitMessage
      */
-    void pushGitHubPagesBranch(String workspaceFolder, String commitMessage) {
+    void pushgit2HubPagesBranch(String workspaceFolder, String commitMessage) {
         def ghPagesTempDir = '.gh-pages'
         try {
             script.dir(ghPagesTempDir) {
@@ -191,12 +191,12 @@ class git2 implements Serializable {
     /**
      * There seems to be no secure way of pushing to git which credentials, we have to write them to the URL
      * See also
-     * https://github.com/jenkinsci/pipeline-examples/blob/0b834c0691b96d8dfc49229ba6effd66470bdee4/pipeline-examples/push-git-repo/pushGitRepo.groovy
+     * https://github.com/jenkinsci/pipeline-examples/blob/0b834c0691b96d8dfc49229ba6effd66470bdee4/pipeline-examples/push-git-repo/pushgit2Repo.groovy
      * Our workaround: Explicitly replace any credentials in stdout and stderr before output
      *
      * @param shCommand
      */
-    protected void executeInShellWithGitCredentialsForWriting(String shCommand) {
+    protected void executeInShellWithgit2CredentialsForWriting(String shCommand) {
 
         /* Writing credentials into the remote  will only work for https, not for ssh.
          * However, ssh seems to work without further auth, wen using the git step in pipelines, so just try
@@ -213,7 +213,7 @@ class git2 implements Serializable {
             String stdOutAndErrFile = "/tmp/${script.env.BUILD_TAG}-shellout"
 
             try {
-                writeCredentialsIntoGitRemote(repoUrlWithoutCredentials)
+                writeCredentialsIntogit2Remote(repoUrlWithoutCredentials)
 
                 script.sh "${shCommand} > ${stdOutAndErrFile} 2>&1"
 
@@ -234,7 +234,7 @@ class git2 implements Serializable {
     }
 
 
-    protected void writeCredentialsIntoGitRemote(String repoUrl) {
+    protected void writeCredentialsIntogit2Remote(String repoUrl) {
         script.withCredentials([script.usernamePassword(credentialsId: credentials,
                 passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
             def repoUrlWithCredentials = createRepoUrlWithCredentials(repoUrl, script.env.USERNAME, script.env.PASSWORD)
