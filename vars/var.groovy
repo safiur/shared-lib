@@ -18,7 +18,6 @@ def call(body)
     stage ( 'building code') {
       def mvn_exe = new Sample()
           mvn_exe.CleanPackage("${config.GOAL1}","${config.GOAL2}")
-          mvn_exe.GetVersion()
 
 }
 }
