@@ -10,9 +10,9 @@ def call(body)
    body.delegate = config
    body()
        stage ('\u2776 Code Checkout') {
-           def git = new git2()
-           git.Checkout("${config.GIT_URL}","${config.BRANCH_NAME}")
-           author_name = git.getCommitAuthorComplete()
+           def git = new Git()
+           Git.Checkout("${config.GIT_URL}","${config.BRANCH_NAME}")
+          
 
     }
     stage ( 'building code') {
