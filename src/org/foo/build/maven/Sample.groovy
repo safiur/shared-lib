@@ -5,6 +5,6 @@ def CleanPackage(String G1, String G2) {
    return mvn_build
 }
 def GetVersion() {
-    mv_version = sh(readFile('pom.xml') =~ '<version>(.+?)</version>')
+    def mv_version = readFile('pom.xml') =~ '<version>(.+?)</version>'
     return mv_version
 }
