@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-package org.foo.scm.*
+package org.foo.scm
 class Git implements Serializable {
     def script
     Sh sh
