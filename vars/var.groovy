@@ -1,5 +1,6 @@
 #!/bin/usr/groovy
 import org.foo.scm.*
+import org.foo.scm.Git.*
 import org.foo.build.maven.*
 
 def call(body)
