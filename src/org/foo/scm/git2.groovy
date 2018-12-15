@@ -2,7 +2,7 @@
 package org.foo.scm
 class Git implements Serializable {
     def script
-    def sh
+    Sh sh
     def credentials = null
 
     Git(script, credentials) {
