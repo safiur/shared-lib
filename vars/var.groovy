@@ -11,7 +11,9 @@ def call(body)
            def git = new git()
            git.Checkout("${config.GIT_URL}","${config.BRANCH_NAME}")
            author_name = git.getCommitAuthorComplete()
-           println(author_name).trim()
 
     }
+    stage ( 'building code') {
+      def mvn_exe = new build()
+          mvn_exe.CleanPackage()
 }
