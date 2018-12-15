@@ -16,4 +16,6 @@ def call(body)
     stage ( 'building code') {
       def mvn_exe = new build()
           mvn_exe.CleanPackage()
+
+}
 }
