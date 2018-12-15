@@ -1,5 +1,6 @@
 #!/bin/usr/groovy
-import org.foo.*
+import org.foo.scm.*
+import org.foo.build.*
 
 def call(body)
 {
