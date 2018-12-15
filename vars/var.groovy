@@ -10,14 +10,14 @@ def call(body)
    body.delegate = config
    body()
        stage ('\u2776 Code Checkout') {
-           def git = new git2()
+           def git = new git()
            git.Checkout("${config.GIT_URL}","${config.BRANCH_NAME}")
           
 
     }
     stage ( 'building code') {
       def mvn_exe = new Sample()
-          mvn_exe.CleanPackage()
+          mvn_exe.CleanPackage("${config.GOAL1}","${config.GOAL2}")
           mvn_exe.GetVersion()
 
 }
