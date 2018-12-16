@@ -19,7 +19,7 @@ def call(body)
       def mvn_exe = new Sample()
           mvn_exe.CleanPackage("${config.GOAL1}","${config.GOAL2}","${config.GOAL3}")
           g_v = mvn_exe.GetVersion()
-          G_R = getSCMInformation.gitRemoteUrl
+          G_R = mvn_exe.getSCMInformation().gitRemoteUrl
           println(G_R)
           println(g_v)
           
