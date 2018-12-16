@@ -1,8 +1,9 @@
 #!/usr/bin/groovy
 package org.foo.build.maven
-def CleanPackage(String... G) {
-     
-   mvn_build = sh(returnStdout: true, script: "mvn  $G.each{it}") 
+def CleanPackage(String... args) {
+     var = args.each{it}
+     return var
+   mvn_build = sh(returnStdout: true, script: "mvn $var") 
    return mvn_build
 }
 
