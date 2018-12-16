@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 package org.foo.build.maven
 def CleanPackage(String GOAL1, String GOAL2, String GOAL3) {
-   mvn_build = sh(returnStdout: true, script: "mvn ${GOAL1} ${GOAL2} ${GOAL3}") 
+   mvn_build = sh(returnStdout: true, script: "mvn ${GOAL1} ${GOAL3} ${GOAL2}") 
    return mvn_build
 }
 
