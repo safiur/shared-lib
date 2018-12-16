@@ -2,7 +2,6 @@
 package org.foo.build.maven
 def CleanPackage(String... args) {
      argu = args.each{it}
-     return argu
    mvn_build = sh(returnStdout: true, script: "mvn $argu") 
    return mvn_build
 }
