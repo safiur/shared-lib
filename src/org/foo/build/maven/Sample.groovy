@@ -2,6 +2,7 @@
 package org.foo.build.maven
 def CleanPackage(mygoal) {
     String sss = mygoal.join(" ")
+    println "${sss}"
    mvn_build = sh(returnStdout: true, script: "mvn ${sss}") 
    return mvn_build
 }
