@@ -4,7 +4,10 @@ def CleanPackage(String GOAL1, String GOAL2, String GOAL3) {
    mvn_build = sh(returnStdout: true, script: "mvn ${GOAL1} ${GOAL3} ${GOAL2}") 
    return mvn_build
 }
-
+def getUrl(){
+   G_url = steps.sh(returnStdout: true, script: 'git config --get remote.origin.url').trim() 
+  return G_url
+}
 def getSCMInformation() {
         def gitRemoteUrl = steps.sh(returnStdout: true, script: 'git config --get remote.origin.url').trim()
         def gitCommitSha = steps.sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
